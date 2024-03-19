@@ -89,47 +89,6 @@
                 console.log("thumbnail");
                 container.innerHTML = childs.join("");
                 AddEventData( container.children );
-            } else {
-                childs = res.map(function(item) {
-                    function chuoi(item) {
-                        if (item.content.length >= 180 ) {
-                            return item.content.slice(0, 180) + bacham;
-                        } else {
-                            return item.content;
-                        }
-                    }
-                    let newChuoi = chuoi(item);
-                    return `
-                    <div class="Child">
-                        <div class="head">
-                            <img src="${item.thumbnail}" alt="">
-                            <div class="status">
-                                ${item.status}
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <h1 id="title">${item.title}</h1>
-                            <p class="description-on"> ${newChuoi} </p>
-                            <p class="description-off"> ${item.content} </p>
-                            <div class="ShowAll"> ... </div>
-                            <div class="TagAndId">
-                                <div class="tag">tag</div>
-                                <div class="id">${item.id}</div>
-                            </div>
-                            <div class="date">
-                                <span>Date:</span>
-                                <span>${item.updatedAt}</span>
-                            </div>
-                            <div class="Published">
-                                <span>PublishedAt:</span>
-                                <span>${item.publishedAt}</span>
-                            </div>
-                        </div>
-                    </div>`;
-                });
-                console.log("image");
-                container.innerHTML = childs.join("");
-                AddEventData( container.children );
             }
         });
     }).catch(function(err) {
@@ -137,8 +96,6 @@
     }).finally(function() {
         console.log("finally");
     });
-
-
 function AddEventData( temp ) {
     for( i = 0; i < temp.length; i++ ) {
         let ShowAll = temp[i].querySelector('.ShowAll');
