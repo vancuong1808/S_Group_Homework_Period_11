@@ -46,6 +46,7 @@
             </div>`
         });
         container.innerHTML = childs.join("");
+        AddEventData( container.children );
         window.addEventListener('resize', function() {
             if (window.matchMedia("(max-width: 300px)").matches) {
                 childs = res.map(function(item) {
@@ -87,24 +88,7 @@
                 });
                 console.log("thumbnail");
                 container.innerHTML = childs.join("");
-                for( i = 0; i < container.children.length; i++ ) {
-                    let temp = container.children;
-                    let ShowAll = temp[i].querySelector('.ShowAll');
-                    let descript_on = temp[i].querySelector('.description-on');
-                    let descript_off = temp[i].querySelector('.description-off');
-                    ShowAll.addEventListener('click', function() {
-                        // console.log( descript_on.classList.contains('fade') );
-                        if( descript_on.classList.contains('fade') ) {
-                            descript_on.classList.remove('fade');
-                            descript_off.classList.remove('active');
-                            // alert("not gud")
-                        } else {
-                            descript_on.classList.add('fade');
-                            descript_off.classList.add('active');
-                            // alert("okay")
-                        }
-                    })
-                }
+                AddEventData( container.children );
             } else {
                 childs = res.map(function(item) {
                     function chuoi(item) {
@@ -145,50 +129,33 @@
                 });
                 console.log("image");
                 container.innerHTML = childs.join("");
-                for( i = 0; i < container.children.length; i++ ) {
-                    let temp = container.children;
-                    let ShowAll = temp[i].querySelector('.ShowAll');
-                    let descript_on = temp[i].querySelector('.description-on');
-                    let descript_off = temp[i].querySelector('.description-off');
-                    ShowAll.addEventListener('click', function() {
-                        // console.log( descript_on.classList.contains('fade') );
-                        if( descript_on.classList.contains('fade') ) {
-                            descript_on.classList.remove('fade');
-                            descript_off.classList.remove('active');
-                            // alert("not gud")
-                        } else {
-                            descript_on.classList.add('fade');
-                            descript_off.classList.add('active');
-                            // alert("okay")
-                        }
-                    })
-                }
+                AddEventData( container.children );
             }
         });
-        for( i = 0; i < container.children.length; i++ ) {
-            let temp = container.children;
-            let ShowAll = temp[i].querySelector('.ShowAll');
-            let descript_on = temp[i].querySelector('.description-on');
-            let descript_off = temp[i].querySelector('.description-off');
-            ShowAll.addEventListener('click', function() {
-                // console.log( descript_on.classList.contains('fade') );
-                if( descript_on.classList.contains('fade') ) {
-                    descript_on.classList.remove('fade');
-                    descript_off.classList.remove('active');
-                    // alert("not gud")
-                } else {
-                    descript_on.classList.add('fade');
-                    descript_off.classList.add('active');
-                    // alert("okay")
-                }
-            })
-        }
     }).catch(function(err) {
         console.log("error", err);
     }).finally(function() {
         console.log("finally");
     });
 
-    
+
+function AddEventData( temp ) {
+    for( i = 0; i < temp.length; i++ ) {
+        let ShowAll = temp[i].querySelector('.ShowAll');
+        let descript_on = temp[i].querySelector('.description-on');
+        let descript_off = temp[i].querySelector('.description-off');
+        ShowAll.addEventListener('click', function() {
+            if( descript_on.classList.contains('fade') ) {
+                descript_on.classList.remove('fade');
+                descript_off.classList.remove('active');
+                // alert("not gud")
+            } else {
+                descript_on.classList.add('fade');
+                descript_off.classList.add('active');
+                // alert("okay")
+            }
+        })
+    }
+}
 
 
