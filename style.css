@@ -57,10 +57,23 @@ body {
     font-size: 16px;
     color: #ffff;
 }
-#description {
+.description-on {
+    display: block;
     margin: 5px 0px;
     font-size: 12px;
     color: #ffff;
+}
+.description-off {
+    display: none;
+    margin: 5px 0px;
+    font-size: 12px;
+    color: #ffff;
+}
+.fade {
+    display: none;
+}
+.active {
+    display: block;
 }
 .ShowAll {
     display: flex;
@@ -73,12 +86,6 @@ body {
     color: #ffff;
     margin: 5px 0px;
     box-sizing: border-box;
-}
-.fade {
-    display: none;
-}
-.active {
-    display: flex;
 }
 .ShowAll:hover {
     cursor: pointer;
@@ -111,7 +118,7 @@ body {
     color: #ffff;
 }
 .date span:nth-child(2) {
-    margin-left: 73px;
+    margin-left: 68px;
 }
 .Published{
     display: flex;
